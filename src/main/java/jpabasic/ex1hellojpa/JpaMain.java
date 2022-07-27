@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class JpaMain {
 
@@ -19,10 +20,13 @@ public class JpaMain {
         try {
 
             /* todo "생성"
-            Member member = new Member();
+
+            // 비영속 상상태
+           Member member = new Member();
             member.setId(1L);
             member.setName("Test1");
 
+            // 영속 상태
             em.persist(member);
 
             tx.commit();
@@ -48,6 +52,17 @@ public class JpaMain {
 
             tx.commit();
             */
+
+            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+                    .setFirstResult(0)
+                    .setMaxResults(8)
+                    .getResultList();
+
+            // JPA 입장에서는 테이블 대상으로 쿼리를 만들지않고 Entity 객체를 대상으로 쿼리를 만든다.
+
+            for(Member member : result) {
+                System.out.println("member.name = " + member.getName());
+            }
 
         } catch (Exception e) {
 
