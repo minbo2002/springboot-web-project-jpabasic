@@ -22,7 +22,7 @@ public class JpaMain {
             /* todo "생성"
 
             // 비영속 상상태
-           Member member = new Member();
+            Member member = new Member();
             member.setId(1L);
             member.setName("Test1");
 
@@ -53,6 +53,7 @@ public class JpaMain {
             tx.commit();
             */
 
+            /* todo JPQL
             List<Member> result = em.createQuery("select m from Member as m", Member.class)
                     .setFirstResult(0)
                     .setMaxResults(8)
@@ -63,6 +64,44 @@ public class JpaMain {
             for(Member member : result) {
                 System.out.println("member.name = " + member.getName());
             }
+            */
+
+            /* todo 엔티티 등록 (쓰기지연SQL 저장소)
+            Member member1 = new Member(150L, "A");
+            Member member2 = new Member(160L, "B");
+
+            em.persist(member1);
+            em.persist(member2);
+
+            System.out.println("=============================");
+
+            tx.commit();
+            */
+
+            /* todo flush 테스트
+            Member member = new Member(200L, "member200");
+
+            em.persist(member);
+            em.flush();
+
+            System.out.println("===============================");
+
+            tx.commit();
+            */
+
+            /* todo 준영속 상태 테스트
+            // 영속 상태
+            Member member = em.find(Member.class, 100L);
+            member.setName("aaaaaaaaaaa");
+
+            em.clear();
+
+            Member member2 = em.find(Member.class, 100L);
+
+            System.out.println("===============================");
+
+            tx.commit();
+            */
 
         } catch (Exception e) {
 
