@@ -103,6 +103,8 @@ public class JpaMain {
             tx.commit();
             */
 
+            tx.commit();
+
         } catch (Exception e) {
 
             tx.rollback();
