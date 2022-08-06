@@ -9,7 +9,7 @@
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>    <!-- 사용자명 -->
             <property name="javax.persistence.jdbc.password" value=""/>  <!-- 비밀번호 -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>  <!-- JDBC URL -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpashop1"/>  <!-- JDBC URL -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 
             <!-- 옵션 -->

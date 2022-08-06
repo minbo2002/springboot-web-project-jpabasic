@@ -4,12 +4,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Member {
+public class MemberTest {
 
     @Id
     private Long id;
 
     @Column(name = "name")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String username;
 
     private Integer age;
@@ -26,7 +27,7 @@ public class Member {
     @Lob
     private String description;
 
-    public Member() {
+    public MemberTest() {
 
     }
 }
